@@ -22,7 +22,7 @@
         body {
             /*  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; */
             font-family: 'Truetypewriter', 'Courier New', Courier, monospace;
-            background-color: #fff;
+            background-color: #f2dfb8;
             color: #333;
             display: flex;
             flex-direction: column;
@@ -35,7 +35,7 @@
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
         }
 
         /* HEADER */
@@ -45,7 +45,7 @@
             color: #111;
             padding: 30px 100px;
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: bold;
             /* letter-spacing: 2px; */
             /* text-transform: uppercase; */
@@ -164,7 +164,7 @@
             padding: 24px;
             color: #111;
             font-size: 1.2rem;
-            line-height: 1.2;
+            line-height: 1.1;
             display: flex;
             /*  align-items: center;
             justify-content: center;
@@ -189,7 +189,11 @@
 
         /* FOOTER */
         footer {
-            background-color: #9b82e0;
+            width: 100%;
+            height: 500px;
+            background-image: url(fabrica.webp);
+            background-position: center;
+            background-color: #f2deb7;
             color: #111;
             padding: 30px 20px;
             text-align: center;
@@ -197,9 +201,9 @@
             font-weight: bold;
             letter-spacing: 2px;
             text-transform: uppercase;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+           /*  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); */
 
-            display: none;
+            display: block;
         }
     </style>
     <style>
@@ -261,6 +265,43 @@
             height: 100%;
             object-fit: contain;
         }
+
+        .zoom-mobile {
+            position: absolute;
+            width: 36px;
+            height: 36px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            padding: 4px;
+            display: none;
+            opacity: .5;
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            animation: pulse 2s infinite;
+        }
+
+        .zoom-mobile img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
     <style>
         /* RESPONSIVE BREAKPOINTS */
@@ -286,6 +327,10 @@
 
         /* LG: 992px - 1199px (3 columns) */
         @media (max-width: 1199px) and (min-width: 992px) {
+            header {
+                padding: 30px 80px;
+            }
+
             .logo-block {
                 height: 180px;
             }
@@ -309,12 +354,16 @@
 
         /* MD: 768px - 991px (2 columns) */
         @media (max-width: 991px) and (min-width: 768px) {
+            header {
+                padding: 30px 40px;
+            }
+
             .logo-block {
                 height: 180px;
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .content-grid {
@@ -371,7 +420,7 @@
             }
 
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
 
             .content-grid {
@@ -382,6 +431,7 @@
             header {
                 font-size: 1.75rem;
                 padding: 16px;
+                text-align: left;
             }
 
             footer {
@@ -392,17 +442,62 @@
             .container {
                 padding: 12px;
             }
+
+            .zoom-mobile {
+                display: flex;
+            }
+
+            .close {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    </style>
+    <style>
+        .counter-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            padding: 20px;
+            background: #f3f3f3;
+            border-radius: 8px;
+        }
+
+        #counter {
+            font-weight: bold;
+            color: #28a745;
+            font-size: 24px;
         }
     </style>
 </head>
 
 <body>
-
+    <!-- <div class="counter-box">
+        <h2>Общее количество просмотров сайта:</h2>
+        <div id="counter">Загрузка...</div>
+    </div> -->
     <header>
         <div class="logo-block">
             <img src="logo.png" alt="Нащ Городок" class="logo">
         </div>
-        <h1>Случилось вчера новоселье "Нашего городка"! Всех распределили, развесили - очень удачно, все наши жители удивительно гармонично сочетаются между собой. Все авторы с душой подошли к делу - я очень люблю каждого нашего человечка, и кошку Мусю, и Мотылька, и Лосика, и даже Паука Себастьяна. Очень хочется поделиться с вами историями персонажей - они просто волшебные! </h1>
+        <h1>Наш городок живёт по своим часам. Утром охранник Владимир открывает ворота. Кошка Муся важно проходит по
+            двору, будто знает все тайны старых корпусов. Хлопковый мотылёк кружит над окнами, напоминая, что здесь
+            когда-то пряли нити, а теперь плетутся истории. <br><br>
+            Молодые приезжают сюда с чемоданами и надеждами. Вениамин первым делом ищет мастерскую, а аниматоры Андрей и
+            Сергей уже придумывают, как рассмешить завтрашних гостей. Работник Пётр и Осенин спорят о планах, пока
+            Мастер узорного цеха молча разбирает старые эскизы. ЛарисВанна варит кофе для всех, а Мадам Жени
+            раскладывает ткани по цветам.<br><br>
+            Девушки осваиваются быстро. Майя учится заправлять станок, Даша и Марфушенька наводят порядок на бывшем
+            складе. Глафира и Гюльчатай готовят вывеску, Пасма и Любонька спорят о названиях новых работ. Стеша и
+            Настёна уже не боятся темноты в коридорах, Арина и Диана находят общий язык с местными духами. Софья,
+            Настасья и Госпожа Нить собирают всех на вечерние чаепития.<br><br>
+            Директора Глеб Пахтакоров и Майкл Лунн обходят территорию, обсуждая, как соединить индустриальное наследие с
+            современным искусством.<br><br>
+            Постепенно каждый находит своё место. Фабрика перестаёт быть просто зданием — она становится домом, шум
+            машин сменяется смехом, а пыль веков уступает свежим краскам. Здесь учатся и ремеслу, и умению слышать друг
+            друга. И когда вечером гаснут лампы, кажется, что старые стены вздыхают с благодарностью: жизнь
+            возвращается.</h1>
     </header>
 
     <div class="container">
@@ -411,7 +506,11 @@
             <!-- Column 1 -->
             <div class="column">
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic1.webp" alt="Семья Клубковых." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic1.webp" alt="Семья Клубковых." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Семья Клубковых.</div>
                     <div class="card-text card-author">Автор: Анастасия Филатова. Домодедово.</div>
                     <div class="card-text">
@@ -432,41 +531,53 @@
                         Оба работали на фабрике
                         предположительно в 1960е-70е годы.
                     </div>
+
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic2.webp" alt="Глафира Балашова." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic2.webp" alt="Глафира Балашова." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Глафира Балашова.</div>
                     <div class="card-text card-author">Автор: Анна Коптева. Москва.</div>
-                    <div class="card-text">Глафира родилась в подмосковном селе,
-                        а с юных лет пришла работать на знаменитую Балашихинскую мануфактуру. Каждый её день
-                        на фабрике наполнен шумом станков, запахом сырого хлопка и тяжелым трудом
-                        у прядильного колеса.
-                        Несмотря на суровые рабочие будни, девушка сохранила чуткую душу, природную грацию
-                        и любовь к красоте. По праздникам Глафира преображается, сменяя простую рабочую одежду на свой
-                        самый лучший нарядный костюм. </div>
+                    <div class="card-text">Глафира родилась в подмосковном селе, а с юных лет пришла работать на
+                        знаменитую Балашихинскую мануфактуру. Каждый её день на фабрике наполнен шумом станков, запахом
+                        сырого хлопка и тяжелым трудом у прядильного колеса. Несмотря на суровые рабочие будни, девушка
+                        сохранила чуткую душу, природную грацию и любовь к красоте. По праздникам Глафира преображается,
+                        сменяя простую рабочую одежду на свой самый лучший нарядный костюм. <br><br>
+                        Главной гордостью её праздничного образа является расписной текстильный платок, сотканный на
+                        соседней павловопосадской мануфактуре. <br><br>
+                        Её образ воплощает неразрывную связь между тяжелым фабричным трудом и подлинной народной
+                        эстетикой прошлых веков. История Глафиры — это дань уважения поколениям текстильщиков, которые
+                        заложили основу индустриальной славы современной Балашихи.
+                    </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic3.webp" alt="Даша Пехорская." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic3.webp" alt="Даша Пехорская." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Даша Пехорская.</div>
                     <div class="card-text card-author">Автор: Анна Коптева. Москва.</div>
-                    <div class="card-text">Юная Даша приехала на Балашихинскую
-                        мануфактуру из соседней деревни
-                        совсем девчонкой, мечтая освоить
-                        передовое ткацкое ремесло. На фабрике
-                        Даша славится своей невероятной
-                        скоростью: её пальцы ловко и
-                        без устали связывают тончайшие хлопковые
-                        нити.
-                        Даша обожает городскую моду
-                        и умудряется выглядеть нарядно даже
-                        в фабричных цехах. Она мечтает
-                        со временем накопить денег, получить
-                        статус самостоятельной мастерицы
-                        и соткать свой собственный уникальный
-                        узор. </div>
+                    <div class="card-text">Юная Даша приехала на Балашихинскую мануфактуру из соседней деревни совсем
+                        девчонкой, мечтая освоить передовое ткацкое ремесло. На фабрике Даша славится своей невероятной
+                        скоростью: её пальцы ловко и без устали связывают тончайшие хлопковые нити. Даша обожает
+                        городскую моду и умудряется выглядеть нарядно даже в фабричных цехах. Она мечтает со временем
+                        накопить денег, получить статус самостоятельной мастерицы и соткать свой собственный уникальный
+                        узор. <br><br>
+                        В образе Даши Пехорской воплотилась молодая энергия, целеустремленность и задор первых поколений
+                        балашихинских текстильщиков. Её история напоминает нам о том, что историю знаменитой фабрики
+                        строили не только вековые династии, но и такие юные, смелые сердца.
+                    </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic4.webp" alt="Стеша Звонкова." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic4.webp" alt="Стеша Звонкова." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Стеша Звонкова.</div>
                     <div class="card-text card-author">Автор: Анна Коптева. Москва.</div>
                     <div class="card-text">Степанида (Стеша) — признанная заводила
@@ -479,24 +590,38 @@
                         в одну большую семью.</div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-4-3"><img src="pic5.webp" alt="Паук Себастьян." class="pic"></div>
+                    <div class="card-photo photo-4-3"><img src="pic5.webp" alt="Паук Себастьян." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Паук Себастьян.</div>
                     <div class="card-text card-author">Автор: Анна Меркулова. Домодедово.</div>
-                    <div class="card-text">Я паук Себастьян, и пока люди спали,
-                        я плел свои кружева в углах, где луч
-                        солнца пробивался сквозь закопченные
-                        стекла, выхватывая из мрака летящие
-                        волокна. Здесь время текло иначе:
-                        оно не тикало, а вытягивалось, как
-                        бесконечная ровница, скручивая
-                        веретена судеб в тугую пряжу. Я
-                        спускался по своей паутине, и слушал,
-                        как стены шепчут воспоминания о
-                        женских голосах, заглушавших рев
-                        моторов.</div>
+                    <div class="card-text">Когда-то здесь воздух дрожал от грохота станков, но сейчас моя сеть ловит
+                        лишь плотную тишину, пропитанную маслом и хлопковой пылью. Влажный пар от машин оседал на
+                        кирпичах, и я до сих пор чувствую горьковатый привкус индустриального пота на своих нитях.
+                        <br><br>
+                        Я паук Себастьян, и пока люди спали, я плел свои кружева в углах,
+                        где луч солнца пробивался сквозь закопченные стекла, выхватывая из мрака летящие волокна. Здесь
+                        время текло иначе: оно не тикало, а вытягивалось, как бесконечная ровница, скручивая веретена
+                        судеб в тугую пряжу. Я спускался по своей паутине, и слушал, как стены шепчут воспоминания о
+                        женских голосах, заглушавших рев моторов. <br><br>
+                        Старые балки помнят вибрацию, которая заставляла дрожать мои лапки, и я вплетаю эту вибрацию в
+                        свой узор, чтобы поймать ускользающую эпоху.
+                        Я долго ждал, приклеившись к каменному углу и мое терпение стало прочнее стальной нити. <br><br>
+                        Скоро фабрика откроется, и я вновь услышу этот ритм — тогда я начну ткать новое полотно, в
+                        котором нити прошлого переплетутся с нитями будущего. <br><br>
+                        Я — хранитель безмолвия между стенами, и моя паутина — это карта остановленного мгновения,
+                        которую я расправляю в предвкушении жизни. <br><br>
+                        Я был, и я есть. Я плету время, я прядильщик истории этого места и так будет всегда.
+                    </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic6.webp" alt="Арина." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic6.webp" alt="Арина." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Арина.</div>
                     <div class="card-text card-author">Автор: Дарья Лаврова. Балашиха.</div>
                     <div class="card-text">Арина — начинающая стажёрка
@@ -513,7 +638,11 @@
                         выражали признательность.</div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-4-3"><img src="pic7.webp" alt="Владимир." class="pic"></div>
+                    <div class="card-photo photo-4-3"><img src="pic7.webp" alt="Владимир." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Владимир.</div>
                     <div class="card-text card-author">Автор: Дарья Лаврова. Балашиха.</div>
                     <div class="card-text">Пёс по кличке Владимир нёс службу
@@ -529,7 +658,11 @@
                         потому что знала — на посту стоит Владимир.</div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-4-3"><img src="pic8.webp" alt="Муся Фабричная." class="pic"></div>
+                    <div class="card-photo photo-4-3"><img src="pic8.webp" alt="Муся Фабричная." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Муся Фабричная.</div>
                     <div class="card-text card-author">Автор: Василиса Ворошкова (11 лет). Домодедово.</div>
                     <div class="card-text">Муся живёт на Фабрике дольше многих
@@ -548,7 +681,11 @@
                         тёплое сердце, которое просто есть рядом.</div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic9.webp" alt="Афина Балашихинская." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic9.webp" alt="Афина Балашихинская." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Афина Балашихинская.</div>
                     <div class="card-text card-author">Автор: Ирина Печёнкина. Домодедово.</div>
                     <div class="card-text">Афина — не память о прошлом фабрики,
@@ -562,7 +699,11 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic10.webp" alt="Хлопковая Прима." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic10.webp" alt="Хлопковая Прима." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Хлопковая Прима.</div>
                     <div class="card-text card-author">Автор: Ирина Печёнкина. Домодедово.</div>
                     <div class="card-text">Она приходит на Фабрику как благодарная дочь — здесь уже двадцать лет делают
@@ -583,7 +724,11 @@
             <div class="column">
                 <div class="card">
                     <div class="card-photo photo-4-3"><img src="pic14.webp"
-                            alt="«А годы, как метелица, все сединою стелятся.»" class="pic"></div>
+                            alt="«А годы, как метелица, все сединою стелятся.»" class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">«А годы, как метелица, все сединою стелятся.»</div>
                     <div class="card-text card-author">Автор: Просвирнина Виктория. Москва.</div>
                     <div class="card-text">Девушки приезжают из маленьких городков,
@@ -595,24 +740,32 @@
                 </div>
                 <div class="card">
                     <div class="card-photo photo-3-4"><img src="pic11.webp"
-                            alt="Хлопковый мотылёк (Рябинный хлопкопряд)." class="pic"></div>
+                            alt="Хлопковый мотылёк (Рябинный хлопкопряд)." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Хлопковый мотылёк (Рябинный хлопкопряд).</div>
                     <div class="card-text card-author">Автор: Кристина Ремизова. </div>
                     <div class="card-text">Ростом с пятилетнего ребенка, а крылья легкие, шелковистые и внимательные.
                         Однажды появился из хорошенькой коробочки хлопка и с тех пор живет на фабрике. Любит ходить в
-                        сером утреннем сумраке
-                        по крыше, слушать и наблюдать.
-                        Если его случайно заметит человек, постарается скрыться с глаз. Только
-                        не догоняй и не преследуй, ему привычнее
-                        в отшельничестве. Если захочет, незаметно спрячет кусочек небеленого полотна в твой карман.
-                        Чтобы утешило волшебным теплом, когда действительно потребуется.
-                        Собирает потерянные ключи и хранит
-                        в рукаве. Говорит, что в морозную зиму они согревают чувством, что за ними всегда смогут
-                        вернуться.
-                        Раз уж вы теперь знакомы, ты не терял ключи от чего-то важного?</div>
+                        сером утреннем сумраке по крыше, слушать и наблюдать.
+                        Если его случайно заметит человек, постарается скрыться с глаз. Только не догоняй и не
+                        преследуй, ему привычнее в отшельничестве. Если захочет, незаметно спрячет кусочек небеленого
+                        полотна в твой карман. Чтобы утешило волшебным теплом, когда действительно потребуется. <br><br>
+                        Собирает потерянные ключи и хранит в рукаве. Говорит, что в морозную зиму они согревают
+                        чувством, что за ними всегда смогут вернуться. Раз уж вы теперь знакомы, ты не терял ключи от
+                        чего-то важного?
+                        Остаётся рядом, даже когда появляется что-то большое и страшное. Потому что кто-то должен быть
+                        рядом до самого конца. И на самом деле никто не хочет быть один.
+                    </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic12.webp" alt="Любонька." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic12.webp" alt="Любонька." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Любонька.</div>
                     <div class="card-text card-author">Автор: Марина Чернова. Екатеринбург.</div>
                     <div class="card-text">Любонька, художник монументалист, приехала из Свердловска в Балашиху, чтобы
@@ -626,7 +779,11 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic13.webp" alt="Веня (Вениамин)." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic13.webp" alt="Веня (Вениамин)." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Веня (Вениамин).</div>
                     <div class="card-text card-author">Автор: Марина Чернова. Екатеринбург.</div>
                     <div class="card-text">Ещё несколько месяцев назад Веня, наладчик Балашихинской хлопкопрядильной
@@ -638,36 +795,17 @@
 
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic15.webp" alt="Неизвестная." class="pic"></div>
-                    <div class="card-text card-title">Неизвестная.</div>
-                    <div class="card-text card-author">Автор: Ивановский Антон. Москва.</div>
-                    <div class="card-text">Таинственная «работница отдела ОТК
-                        прядильного цеха, пожелавшая остаться
-                        инкогнито».
 
-                    </div>
-                </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic16.webp" alt="Настасья - банкаброшница." class="pic">
+                    <div class="card-photo photo-3-4"><img src="pic17.webp" alt="Работник." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
                     </div>
-                    <div class="card-text card-title">Настасья - банкаброшница.</div>
-                    <div class="card-text card-author">Автор: Екатерина Новикова. Парагвай, Асунсьон.</div>
-                    <div class="card-text">Настасья - банкаброшница, ответственная работница фабрики и завидная невеста.
-                        Каждый день она следит за работой банкаброша, ловко управляясь с веретёнами и пряжей.
-                        Но броши Настасья тоже любит, не меньше, чем свою работу и красивые наряды.
-                        За хорошую работу Настасью ценят
-                        на фабрике, а за красоту и достаток ею интересуются многочисленные женихи.
-                        Говорят, у Настасьи уже собрано приличное приданое, но замуж она пока не спешит.
-                        Ведь будущий муж должен быть под стать такой работящей и нарядной девушке.
-                        А пока Настасья каждое утро отправляется к своему банкаброшу, прикалывает любимую брошь к
-                        воротнику и принимается за дело. </div>
-                </div>
-                <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic17.webp" alt="Работник." class="pic"></div>
                     <div class="card-text card-title">Работник.</div>
                     <div class="card-text card-author">Автор: Дозморова Надежда (Nadya Niko).</div>
-                    <div class="card-text">Работник фабрики в Балашихе начинал день с проверки оборудования, точность
+                    <div class="card-text">Работник фабрики Пётр в Балашихе начинал день с проверки оборудования,
+                        точность
                         и внимание к деталям были его главными принципами. За его трудолюбие и усердное отношение к
                         работе руководство назначило его начальником склада, в котором дела шли не очень хорошо.
                         Его главной задачей было производить контроль за поставками сырья, тщательно следя за тем, чтобы
@@ -681,7 +819,11 @@
                 </div>
                 <div class="card">
                     <div class="card-photo photo-3-4"><img src="pic18.webp" alt="Без названия. (Девушка в красном)."
-                            class="pic"></div>
+                            class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Без названия. (Девушка в красном).</div>
                     <div class="card-text card-author">Автор: Дозморова Надежда (Nadya Niko). Пермь.</div>
                     <div class="card-text">Лида, младшая сестра Петра, была лицом фабрики «Блашиха»: как манекенщица она
@@ -696,7 +838,11 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic19.webp" alt="Маленькая Модница." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic19.webp" alt="Маленькая Модница." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Маленькая Модница.</div>
                     <div class="card-text card-author">Автор: Дозморова Надежда (Nadya Niko). Пермь.</div>
                     <div class="card-text">А дома Петра ждала маленькая модница - дочка. Едва заслышав тяжёлые шаги отца
@@ -712,7 +858,11 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic20.webp" alt="Пасма." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic20.webp" alt="Пасма." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Пасма.</div>
                     <div class="card-text card-author">Автор: Наталья Кумалагова. Домодедово.</div>
                     <div class="card-text">Пасма родилась из цветных обрезков пряжи
@@ -724,31 +874,79 @@
 
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="card-photo photo-3-4"><img src="pic37.webp" alt="Госпожа Нить." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Госпожа Нить.</div>
+                    <div class="card-text card-author">Автор: Пелагея Королева (11 лет). Домодедово.</div>
+                    <div class="card-text">Госпожа Нить была красотой этого цеха —
+                        она не просто существовала, она задавала
+                        стандарт, и каждый пропущенный ею моток
+                        нёс на себе печать её безупречного вкуса
+                        и вечной неподкупности.
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-photo photo-3-4"><img src="pic38.webp" alt="РОботник Паша." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">РОботник Паша.</div>
+                    <div class="card-text card-author">Автор: Пелагея Королева (11 лет). Домодедово.</div>
+                    <div class="card-text">Паша когда-то строил этот цех, но потерял руку, и теперь на её месте —
+                        холодный металлический протез, делающий его почти роботом, где буква «о» в имени — единственное
+                        напоминание о человеческом тепле. <br><br>
+                        Он приходит затемно и своими железными пальцами зажигает свет, превращая мёртвый скелет из
+                        железа и бетона в дышащую фабрику — и в этом движении рождается утро. Паша не просто включает
+                        лампы: он смазывает оси, поправляет спутанную ровницу, подтягивает ремни и знает каждый стон
+                        станка, потому что его рука чувствует вибрацию машин лучше любого прибора. Его работа незаметна,
+                        но без него цех — лишь безмолвная груда металла; он — тот невидимый импульс, который запускает
+                        сердце фабрики каждое утро.
+                        <br><br>Когда ночью фабрика затихает, Паша остаётся в своём углу, и в темноте слышен лишь мерный
+                        стук его протеза о перила — будто сама фабрика благодарно отбивает пульс в ответ.
+
+
+                    </div>
+                </div>
             </div>
 
             <!-- Column 3 -->
             <div class="column">
+
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic21.webp" alt="Глеб Пахтакоров." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic21.webp" alt="Глеб Пахтакоров." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Глеб Пахтакоров.</div>
                     <div class="card-text card-author">Автор: Нафиса Жаббарова. Балашиха.</div>
                     <div class="card-text">Глеб Пахтакоров занимает должность директора Балашихинской хлопкопрядильной
                         фабрики. Особое внимание руководитель уделяет вопросам логистики и снабжения. Он наладил прямые
-                        контракты
-                        с поставщиками узбекского и туркменского хлопка, что снизило себестоимость продукции и сделало
-                        фабрику более устойчивой к колебаниям цен на сырьё.
-                        Он также инициировал программу
-                        по снижению энергопотребления, внедрив системы рекуперации тепла
-                        и автоматизированный контроль
-                        за расходом ресурсов. Эти меры не только уменьшили издержки, но и соответствуют современным
-                        экологическим стандартам, что повысило инвестиционную привлекательность фабрики.
-                        Пахтакоров регулярно проводит встречи
-                        с трудовым коллективом, обсуждая текущие задачи и перспективы развития.
+                        контракты с поставщиками узбекского и туркменского хлопка, что снизило себестоимость продукции и
+                        сделало фабрику более устойчивой к колебаниям цен на сырьё. Он также инициировал программу по
+                        снижению энергопотребления, внедрив системы рекуперации тепла и автоматизированный контроль за
+                        расходом ресурсов. Эти меры не только уменьшили издержки, но и соответствуют современным
+                        экологическим стандартам, что повысило инвестиционную привлекательность фабрики. Пахтакоров
+                        регулярно проводит встречи с трудовым коллективом, обсуждая текущие задачи и перспективы
+                        развития. <br><br>
+                        Его стиль работы — это спокойная настойчивость и внимание к деталям, которые превратили
+                        предприятие в надёжного игрока отрасли.
+
 
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-photo photo-3-4"><img src="pic22.webp" alt="Дух фабрики Понедельник." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
                     </div>
                     <div class="card-text card-title">Дух фабрики Понедельник.</div>
                     <div class="card-text card-author">Автор: Лейла Жаббарова. Балашиха.</div>
@@ -768,7 +966,11 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic23.webp" alt="Товарищ Икс." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic23.webp" alt="Товарищ Икс." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Товарищ Икс.</div>
                     <div class="card-text card-author">Автор: Лейла Жаббарова. Балашиха.</div>
                     <div class="card-text">Товарищ Икс, исчезающий и появляющийся
@@ -777,7 +979,11 @@
                         отсутствуют неделями...</div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic24.webp" alt="Майя." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic24.webp" alt="Майя." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Майя.</div>
                     <div class="card-text card-author">Автор: Лейла Жаббарова. Балашиха.</div>
                     <div class="card-text">Майя - душа фабрики. У неё всегда есть новый наряд, отличное настроение,
@@ -789,7 +995,11 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic25.webp" alt="Диана." class="pic"></div>
+                    <div class="card-photo photo-3-4"><img src="pic25.webp" alt="Диана." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Диана.</div>
                     <div class="card-text card-author">Автор: Лейла Жаббарова. Балашиха.</div>
                     <div class="card-text">Диана - девушка вне времени. Она конспектирует все события, происходящие
@@ -800,36 +1010,12 @@
 
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic27.webp" alt="Аниматор Андрей" class="pic"></div>
-                    <div class="card-text card-title">Аниматор Андрей</div>
-                    <div class="card-text card-author">Автор: Наталья Пайтмак. Москва.</div>
-                    <div class="card-text">Секрет его успеха был прост: он не пытался быть артистом, он оставался одним
-                        из простых рабочих. Но при этом Андрей помнил имена всех, знал, у кого завтра день рождения, а
-                        кто пришёл после больничного. Его любимым образом был образ ананаса – самый забавный и любимый
-                        всеми. И когда за смену он успевал поднять настроение хотя бы десятку человек, то считал свой
-                        день не напрасным.
 
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic26.webp" alt="Аниматор Сергей." class="pic"></div>
-                    <div class="card-text card-title">Аниматор Сергей.</div>
-                    <div class="card-text card-author">Автор: Наталья Пайтмак. Москва.</div>
-                    <div class="card-text">Сергей (друг Андрея) появился на фабрике три года назад, устроившись
-                        на должность разнорабочего. Днём он таскал кипы хлопка, следил за работой станков и подметал
-                        цеха, а в обеденный перерыв превращался в главного аниматора.
-                        Его инструментами были громкий голос, умение жонглировать катушками и тонкое чутьё на настроение
-                        коллектива. Он знал, когда достаточно пошутить про уставшего сменщика, а когда лучше молча
-                        раздать всем по конфете. Эффект был заметен
-                        не только в общем настроении. Производительность цеха, где работал Сергей, выросла на треть —
-                        это отметили
-                        и мастера, и директор.
-
-                    </div>
-                </div>
                 <div class="card">
                     <div class="card-photo photo-3-4"><img src="pic28.webp" alt="Лосик и летающая шляпа." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
                     </div>
                     <div class="card-text card-title">Лосик и летающая шляпа.</div>
                     <div class="card-text card-author">Автор: Ольга Лебедева. Москва.</div>
@@ -841,6 +1027,9 @@
                 </div>
                 <div class="card">
                     <div class="card-photo photo-3-4"><img src="pic29.webp" alt="Мастер узорного цеха." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
                     </div>
                     <div class="card-text card-title">Мастер узорного цеха.</div>
                     <div class="card-text card-author">Автор: Ольга Лебедева. Москва.</div>
@@ -851,62 +1040,31 @@
 
                     </div>
                 </div>
+
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic30.webp" alt="Гюльчатай." class="pic"></div>
-                    <div class="card-text card-title">Гюльчатай.</div>
-                    <div class="card-text card-author">Автор: Светлана Циркунова. Балашиха.</div>
-                    <div class="card-text">Чернобровая красавица Гюльчатай живет
-                        в кишлаке, в Средней Азии. С детских лет она трудится на полях под знойным солнцем, выращивая и
-                        собирая хлопок. Складывая мягкий пух в мешки, она представляет, какие получатся из него красивые
-                        и лёгкие платья. У Гюльчатай есть мечта: выучиться швейному делу
-                        и сшить свой самый прекрасный наряд.
+                    <div class="card-photo photo-4-3"><img src="pic41.webp" alt="Катушка." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Катушка.</div>
+                    <div class="card-text card-author">Автор: Ольга Лебедева. Москва.</div>
+                    <div class="card-text">Труд на фабрике был тяжелым и
+                        монотонным. Сами работницы часто
+                        говорили: «Когда Катушка улыбается —
+                        работа спорится», имея в виду, что
+                        хорошее настроение, легкая рука и
+                        добрый настрой коллектива буквально
+                        заставляли станки работать как надо.
 
                     </div>
                 </div>
 
-            </div>
-
-            <!-- Column 4 -->
-            <div class="column">
-                <div class="card">
-                    <div class="card-photo photo-4-3"><img src="pic40.webp" alt="Майкл Лунн." class="pic"></div>
-                    <div class="card-text card-title">Майкл Лунн.</div>
-                    <div class="card-text card-author">Автор: Дарина Заславская. </div>
-                    <div class="card-text">В 1850 англичанин Майкл Лунн прибыл
-                        в Балашиху для монтажа парового двигателя на фабрике. После чего он возглавил производство и
-                        создал целый маленький город с больницей, школой, клубом и прочим. Лунн управлял балашихинской
-                        фабрикой 45 лет,
-                        а позднее фабрикой управляли его сыновья.
-
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic31.webp" alt="Марфушенька." class="pic"></div>
-                    <div class="card-text card-title">Марфушенька.</div>
-                    <div class="card-text card-author">Автор: Светлана Циркунова. Балашиха.</div>
-                    <div class="card-text">Марфушенька – ловкая и умелая банкаброшница, приехала в Балашиху
-                        из далёкой сибирской деревни. Нежно перебирая хлопковые нити тонкими пальчиками, Марфуша,
-                        украдкой смахивает слезу, вспоминая своих любимиц: курицу Рыжуху и собачку Жучку. Она мечтает
-                        вернуться в родную деревню, обнять родителей и долго-долго сидеть на крыльце дорогого сердцу
-                        дома, провожая закат.
-
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic32.webp" alt="Мадам Жени." class="pic"></div>
-                    <div class="card-text card-title">Мадам Жени.</div>
-                    <div class="card-text card-author">Автор: Светлана Циркунова. Балашиха.</div>
-                    <div class="card-text">Женя, Женечка или, на французский манер, мадам Жени – известная в Москве
-                        модистка, шьет для знатных и богатых
-                        в ателье Надежды Ламановой. Жени обожает журналы мод, тонкий батист и театральные премьеры. Ей
-                        часто снится один и тот же сон: она стоит на сцене, в лучах прожектора, в перьях и
-                        драгоценностях, немного усталая, но счастливая, купаясь
-                        в аплодисментах зрительного зала.
-
-                    </div>
-                </div>
                 <div class="card">
                     <div class="card-photo photo-3-4"><img src="pic33.webp" alt="Шелапутинский показ мод." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
                     </div>
                     <div class="card-text card-title">Шелапутинский показ мод. </div>
                     <div class="card-text card-author">Автор: Светлана Пронина. Домодедово.</div>
@@ -920,7 +1078,126 @@
                     </div>
                 </div>
                 <div class="card">
+                    <div class="card-photo photo-3-4"><img src="pic15.webp" alt="Неизвестная." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Неизвестная.</div>
+                    <div class="card-text card-author">Автор: Ивановский Антон. Москва.</div>
+                    <div class="card-text">Таинственная «работница отдела ОТК
+                        прядильного цеха, пожелавшая остаться
+                        инкогнито».
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-photo photo-3-4"><img src="pic16.webp" alt="Настасья - банкаброшница." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Настасья - банкаброшница.</div>
+                    <div class="card-text card-author">Автор: Екатерина Новикова. Парагвай, Асунсьон.</div>
+                    <div class="card-text">Настасья - банкаброшница, ответственная работница фабрики и завидная невеста.
+                        Каждый день она следит за работой банкаброша, ловко управляясь с веретёнами и пряжей.
+                        Но броши Настасья тоже любит, не меньше, чем свою работу и красивые наряды.
+                        За хорошую работу Настасью ценят
+                        на фабрике, а за красоту и достаток ею интересуются многочисленные женихи.
+                        Говорят, у Настасьи уже собрано приличное приданое, но замуж она пока не спешит.
+                        Ведь будущий муж должен быть под стать такой работящей и нарядной девушке.
+                        А пока Настасья каждое утро отправляется к своему банкаброшу, прикалывает любимую брошь к
+                        воротнику и принимается за дело. </div>
+                </div>
+
+            </div>
+
+            <!-- Column 4 -->
+            <div class="column">
+                <div class="card">
+                    <div class="card-photo photo-4-3"><img src="pic40.webp" alt="Майкл Лунн." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Майкл Лунн.</div>
+                    <div class="card-text card-author">Автор: Дарина Заславская. </div>
+                    <div class="card-text">В 1850 англичанин Майкл Лунн прибыл
+                        в Балашиху для монтажа парового двигателя на фабрике. После чего он возглавил производство и
+                        создал целый маленький город с больницей, школой, клубом и прочим. Лунн управлял балашихинской
+                        фабрикой 45 лет,
+                        а позднее фабрикой управляли его сыновья.
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-photo photo-3-4"><img src="pic39.webp" alt="Осенин." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Осенин.</div>
+                    <div class="card-text card-author">Автор: Ольга Лебедева. Москва.</div>
+                    <div class="card-text">Ситцевый поэт в строгом костюме.
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-photo photo-3-4"><img src="pic30.webp" alt="Гюльчатай." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Гюльчатай.</div>
+                    <div class="card-text card-author">Автор: Светлана Циркунова. Балашиха.</div>
+                    <div class="card-text">Чернобровая красавица Гюльчатай живет
+                        в кишлаке, в Средней Азии. С детских лет она трудится на полях под знойным солнцем, выращивая и
+                        собирая хлопок. Складывая мягкий пух в мешки, она представляет, какие получатся из него красивые
+                        и лёгкие платья. У Гюльчатай есть мечта: выучиться швейному делу
+                        и сшить свой самый прекрасный наряд.
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-photo photo-3-4"><img src="pic31.webp" alt="Марфушенька." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Марфушенька.</div>
+                    <div class="card-text card-author">Автор: Светлана Циркунова. Балашиха.</div>
+                    <div class="card-text">Марфушенька – ловкая и умелая банкаброшница, приехала в Балашиху
+                        из далёкой сибирской деревни. Нежно перебирая хлопковые нити тонкими пальчиками, Марфуша,
+                        украдкой смахивает слезу, вспоминая своих любимиц: курицу Рыжуху и собачку Жучку. Она мечтает
+                        вернуться в родную деревню, обнять родителей и долго-долго сидеть на крыльце дорогого сердцу
+                        дома, провожая закат.
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-photo photo-3-4"><img src="pic32.webp" alt="Мадам Жени." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Мадам Жени.</div>
+                    <div class="card-text card-author">Автор: Светлана Циркунова. Балашиха.</div>
+                    <div class="card-text">Женя, Женечка или, на французский манер, мадам Жени – известная в Москве
+                        модистка, шьет для знатных и богатых
+                        в ателье Надежды Ламановой. Жени обожает журналы мод, тонкий батист и театральные премьеры. Ей
+                        часто снится один и тот же сон: она стоит на сцене, в лучах прожектора, в перьях и
+                        драгоценностях, немного усталая, но счастливая, купаясь
+                        в аплодисментах зрительного зала.
+
+                    </div>
+                </div>
+
+                <div class="card">
                     <div class="card-photo photo-3-4"><img src="pic34.webp" alt="Настёна Тростинкина." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
                     </div>
                     <div class="card-text card-title">Настёна Тростинкина.</div>
                     <div class="card-text card-author">Автор: Татьяна Чемёркина. Новый Оскол.</div>
@@ -935,7 +1212,11 @@
                 </div>
                 <div class="card">
                     <div class="card-photo photo-3-4"><img src="pic35.webp" alt="Софья Поликарповна Прядкина."
-                            class="pic"></div>
+                            class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Софья Поликарповна Прядкина.</div>
                     <div class="card-text card-author">Автор: Татьяна Чемёркина. Новый Оскол.</div>
                     <div class="card-text">Молодая учительница, жена инженера Фёдора Ивановича Прядкина, который недавно
@@ -951,7 +1232,11 @@
                 </div>
                 <div class="card">
                     <div class="card-photo photo-3-4"><img src="pic36.webp" alt="Эльвира Готфридовна Зоммерфельд."
-                            class="pic"></div>
+                            class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
                     <div class="card-text card-title">Эльвира Готфридовна Зоммерфельд.</div>
                     <div class="card-text card-author">Автор: Татьяна Чемёркина. Новый Оскол.</div>
                     <div class="card-text">Прекрасно образована и чрезвычайно грамотна. Раньше учила хозяйских детей,
@@ -964,70 +1249,51 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic37.webp" alt="Госпожа Нить." class="pic"></div>
-                    <div class="card-text card-title">Госпожа Нить.</div>
-                    <div class="card-text card-author">Автор: Пелагея Королева (11 лет). Домодедово.</div>
-                    <div class="card-text">Госпожа Нить была красотой этого цеха —
-                        она не просто существовала, она задавала
-                        стандарт, и каждый пропущенный ею моток
-                        нёс на себе печать её безупречного вкуса
-                        и вечной неподкупности.
+                    <div class="card-photo photo-3-4"><img src="pic27.webp" alt="Аниматор Андрей" class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Аниматор Андрей</div>
+                    <div class="card-text card-author">Автор: Наталья Пайтмак. Москва.</div>
+                    <div class="card-text">Секрет его успеха был прост: он не пытался быть артистом, он оставался одним
+                        из простых рабочих. Но при этом Андрей помнил имена всех, знал, у кого завтра день рождения, а
+                        кто пришёл после больничного. Его любимым образом был образ ананаса – самый забавный и любимый
+                        всеми. И когда за смену он успевал поднять настроение хотя бы десятку человек, то считал свой
+                        день не напрасным.
 
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic38.webp" alt="РОботник Паша." class="pic"></div>
-                    <div class="card-text card-title">РОботник Паша.</div>
-                    <div class="card-text card-author">Автор: Пелагея Королева (11 лет). Домодедово.</div>
-                    <div class="card-text">Паша когда-то строил этот цех, но потерял
-                        руку, и теперь на её месте — холодный
-                        металлический протез, делающий его почти
-                        роботом, где буква «о» в имени —
-                        единственное напоминание о человеческом
-                        тепле.
-                        Он приходит затемно и своими железными
-                        пальцами зажигает свет, превращая мёртвый
-                        скелет из железа и бетона в дышащую фабрику
-                        и в этом движении рождается утро.
-                        Паша не просто включает лампы: он смазывает
-                        оси, поправляет спутанную ровницу,
-                        подтягивает ремни и знает каждый стон
-                        станка, потому что его рука чувствует
-                        вибрацию машин лучше любого прибора.
-                        Его работа незаметна, но без него цех —
-                        лишь безмолвная груда металла; он — тот
-                        невидимый импульс, который запускает
-                        сердце фабрики каждое утро.
+                    <div class="card-photo photo-3-4"><img src="pic26.webp" alt="Аниматор Сергей." class="pic">
+                        <div class="zoom-mobile">
+                            <img src="arrows_output.svg" alt="ZOOM">
+                        </div>
+                    </div>
+                    <div class="card-text card-title">Аниматор Сергей.</div>
+                    <div class="card-text card-author">Автор: Наталья Пайтмак. Москва.</div>
+                    <div class="card-text">Сергей (друг Андрея) появился на фабрике три года назад, устроившись
+                        на должность разнорабочего. Днём он таскал кипы хлопка, следил за работой станков и подметал
+                        цеха, а в обеденный перерыв превращался в главного аниматора.
+                        Его инструментами были громкий голос, умение жонглировать катушками и тонкое чутьё на настроение
+                        коллектива. Он знал, когда достаточно пошутить про уставшего сменщика, а когда лучше молча
+                        раздать всем по конфете. Эффект был заметен
+                        не только в общем настроении. Производительность цеха, где работал Сергей, выросла на треть —
+                        это отметили
+                        и мастера, и директор.
 
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-photo photo-3-4"><img src="pic39.webp" alt="Осенин." class="pic"></div>
-                    <div class="card-text card-title">Осенин.</div>
-                    <div class="card-text card-author">Автор: Ольга Лебедева. Москва.</div>
-                    <div class="card-text">Ситцевый поэт в строгом костюме.
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-photo photo-4-3"><img src="pic41.webp" alt="Катушка." class="pic"></div>
-                    <div class="card-text card-title">Катушка.</div>
-                    <div class="card-text card-author">Автор: Ольга Лебедева. Москва.</div>
-                    <div class="card-text">Труд на фабрике был тяжелым и
-                        монотонным. Сами работницы часто
-                        говорили: «Когда Катушка улыбается —
-                        работа спорится», имея в виду, что
-                        хорошее настроение, легкая рука и
-                        добрый настрой коллектива буквально
-                        заставляли станки работать как надо.
 
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <footer>FOOTER</footer>
+    <footer>
+        <!-- <div class="logo-block">
+            <img src="logo.png" alt="Нащ Городок" class="logo">
+        </div> -->
+    </footer>
 
     <section class="full-view">
         <img src="pic1.webp" alt="" class="full">
@@ -1062,8 +1328,10 @@
                     }
                     //console.log('SHOW')
                     fullView.classList.add('show');
+                    document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
                     fullView.addEventListener('click', function () {
                         this.classList.remove('show');
+                        document.body.style.overflow = '';
                     })
                 })
             })
@@ -1071,6 +1339,7 @@
             close.addEventListener('click', function () {
                 photos.forEach(function (element, index) {
                     fullView.classList.remove('show');
+                    document.body.style.overflow = '';
                 })
             })
 
@@ -1079,11 +1348,43 @@
                 if (event.key === 'Escape') {
                     photos.forEach(function (element, index) {
                         fullView.classList.remove('show');
+                        document.body.style.overflow = '';
                     });
                 }
             });
         })
     </script>
+
+    <!--СЧЁТЧИК-->
+    <!--
+    <script>
+        async function initCounter() {
+            // Придумайте уникальный namespace (например, домен вашего сайта без точек)
+            // и уникальный ключ (key)
+            const namespace = "nash-gorodokgithubio";
+            const key = "c804599d-0931-482c-8b05-cd9c93880451";
+
+            // URL эндпоинта /hit, который увеличивает счётчик на 1 при каждом вызове
+            const url = `https://jasoncameron.dev{namespace}/${key}`;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Ошибка сети');
+
+                const data = await response.json();
+
+                // API возвращает JSON, обновляем текст на странице
+                document.getElementById('counter').textContent = data.value;
+            } catch (error) {
+                console.error('Ошибка счётчика:', error);
+                document.getElementById('counter').textContent = 'Не удалось загрузить';
+            }
+        }
+
+        // Запускаем при загрузке страницы
+        document.addEventListener('DOMContentLoaded', initCounter);
+    </script>
+    -->
 
 </body>
 
